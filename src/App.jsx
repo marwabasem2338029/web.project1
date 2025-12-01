@@ -13,10 +13,10 @@ function App() {
       
       <main>
         <Routes>
-          {/* <Route path="/" element={<MainPage />} /> */}
-          {/* <Route path="/login" element={<LoginPage />} /> */}
-          {/* <Route path="/register" element={<RegisterPage />} /> */}
-          {/* <Route path="/about" element={<AboutPage />} /> */}
+          { <Route path="/" element={<MainPage />} />  }
+          { <Route path="/login" element={<LoginPage />} /> }
+          { <Route path="/register" element={<RegisterPage />} /> }
+          { <Route path="/about" element={<AboutPage />} /> }
           
           <Route path="*" element={<h1>404 - Page Not Found</h1>} />
         </Routes>

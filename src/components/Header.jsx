@@ -1,20 +1,27 @@
+// src/components/Header.jsx
+
 import { Link } from 'react-router-dom';
 
 function Header() {
   return (
     <header className="main-header">
       <nav>
-        <ul>
+         <ul className="nav-links">
           <li>
-            {/* عند الضغط على هذا الرابط، يذهب للمسار الرئيسي / */}
             <Link to="/">Home</Link>
           </li>
           <li>
-            {/* عند الضغط على هذا الرابط، يذهب لمسار /about */}
             <Link to="/about">About</Link>
           </li>
+        </ul>
+        
+         <div className="search-bar">
+          <input type="text" placeholder="Search products..." />
+          <button>Search</button>
+        </div>
+
+         <ul className="auth-links">
           <li>
-            {/* عند الضغط على هذا الرابط، يذهب لمسار /login */}
             <Link to="/login">Login</Link>
           </li>
         </ul>

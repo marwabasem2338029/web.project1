@@ -1,16 +1,12 @@
  
-// src/pages/MainPage.jsx
-
-// 1. استيراد الـ Hooks اللازمة
-import React, { useState, useMemo } from 'react';
+ 
+ import React, { useState, useMemo } from 'react';
 import MOCK_BOOKS from '../data/MockProducts';
 
-// دالة الفرز المساعدة (Helper Function)
-const sortBooks = (books, sortType) => {
+ const sortBooks = (books, sortType) => {
   const sorted = [...books];
   
-  // منطق الفرز
-  if (sortType === 'year-asc') {
+   if (sortType === 'year-asc') {
     sorted.sort((a, b) => a.year - b.year);
   } else if (sortType === 'year-desc') {
     sorted.sort((a, b) => b.year - a.year);
@@ -22,42 +18,34 @@ const sortBooks = (books, sortType) => {
 };
 
 function MainPage() {
-  // 2. حالات التحكم في الفلترة والفرز
-  const [selectedGenre, setSelectedGenre] = useState('all');
+   const [selectedGenre, setSelectedGenre] = useState('all');
   const [sortType, setSortType] = useState('default');
 
-  // 3. تطبيق الفلترة على الكتب
-  const filteredBooks = useMemo(() => {
+   const filteredBooks = useMemo(() => {
     let currentBooks = MOCK_BOOKS;
 
-    // تطبيق الفلترة حسب المجال (Genre)
-    if (selectedGenre !== 'all') {
+     if (selectedGenre !== 'all') {
       currentBooks = currentBooks.filter(book => book.genre === selectedGenre);
     }
 
-    // تطبيق الفرز
-    return sortBooks(currentBooks, sortType);
+     return sortBooks(currentBooks, sortType);
 
-  }, [selectedGenre, sortType]); // عند تغير أي من هذين المتغيرين، يتم تحديث القائمة
+  }, [selectedGenre, sortType]);
 
-  // 4. دالة لمعالجة اختيار الفلترة
-  const handleFilterChange = (event) => {
+   const handleFilterChange = (event) => {
     setSelectedGenre(event.target.value);
   };
   
-  // 5. دالة لمعالجة اختيار الفرز
-  const handleSortChange = (event) => {
+   const handleSortChange = (event) => {
     setSortType(event.target.value);
   };
 
   return (
     <div className="main-page">
       
-      {/* أدوات التحكم بالفلترة والفرز */}
-      <div className="filter-controls">
+       <div className="filter-controls">
         
-        {/* 1. قائمة الفرز (Sorting) - ربطها بالـ State */}
-        <div className="control-group">
+         <div className="control-group">
           <label htmlFor="sort-by">Sort By:</label>
           <select 
             id="sort-by" 
@@ -72,8 +60,7 @@ function MainPage() {
           </select>
         </div>
 
-        {/* 2. قائمة الفلترة (Filtering by Genre) - ربطها بالـ State */}
-        <div className="control-group">
+         <div className="control-group">
           <label htmlFor="filter-genre">Filter By Genre:</label>
           <select 
             id="filter-genre" 
@@ -91,8 +78,7 @@ function MainPage() {
         </div>
       </div>
       
-      {/* عرض الكتب المفلترة والمفرزة */}
-      <h2>Available Books ({filteredBooks.length} items found)</h2>
+       <h2>Available Books ({filteredBooks.length} items found)</h2>
       
       <div className="book-list">
         {filteredBooks.length > 0 ? (

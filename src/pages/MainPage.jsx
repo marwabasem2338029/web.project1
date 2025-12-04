@@ -1,12 +1,10 @@
- 
- 
- import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import MOCK_BOOKS from '../data/MockProducts';
 
- const sortBooks = (books, sortType) => {
+const sortBooks = (books, sortType) => {
   const sorted = [...books];
   
-   if (sortType === 'year-asc') {
+  if (sortType === 'year-asc') {
     sorted.sort((a, b) => a.year - b.year);
   } else if (sortType === 'year-desc') {
     sorted.sort((a, b) => b.year - a.year);
@@ -18,34 +16,57 @@ import MOCK_BOOKS from '../data/MockProducts';
 };
 
 function MainPage() {
-   const [selectedGenre, setSelectedGenre] = useState('all');
+  const [selectedGenre, setSelectedGenre] = useState('all');
   const [sortType, setSortType] = useState('default');
+  const [searchTerm, setSearchTerm] = useState(''); // ⭐ NEW
 
-   const filteredBooks = useMemo(() => {
+  const filteredBooks = useMemo(() => {
     let currentBooks = MOCK_BOOKS;
 
-     if (selectedGenre !== 'all') {
+    // ⭐ Filter by genre
+    if (selectedGenre !== 'all') {
       currentBooks = currentBooks.filter(book => book.genre === selectedGenre);
     }
 
-     return sortBooks(currentBooks, sortType);
+    // ⭐ Filter by SEARCH
+    if (searchTerm.trim() !== "") {
+      currentBooks = currentBooks.filter(book =>
+        book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        book.author.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
 
-  }, [selectedGenre, sortType]);
+    // ⭐ Apply sorting at the end
+    return sortBooks(currentBooks, sortType);
 
-   const handleFilterChange = (event) => {
+  }, [selectedGenre, sortType, searchTerm]);
+
+  const handleFilterChange = (event) => {
     setSelectedGenre(event.target.value);
   };
   
-   const handleSortChange = (event) => {
+  const handleSortChange = (event) => {
     setSortType(event.target.value);
   };
 
   return (
     <div className="main-page">
-      
-       <div className="filter-controls">
-        
-         <div className="control-group">
+
+      <div className="filter-controls">
+
+        {/* ⭐ NEW SEARCH BAR */}
+        <div className="control-group">
+          <label htmlFor="search">Search:</label>
+          <input
+            id="search"
+            type="text"
+            placeholder="Search by title or author..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+
+        <div className="control-group">
           <label htmlFor="sort-by">Sort By:</label>
           <select 
             id="sort-by" 
@@ -60,7 +81,7 @@ function MainPage() {
           </select>
         </div>
 
-         <div className="control-group">
+        <div className="control-group">
           <label htmlFor="filter-genre">Filter By Genre:</label>
           <select 
             id="filter-genre" 
@@ -76,10 +97,11 @@ function MainPage() {
             <option value="Psychology">Psychology</option>
           </select>
         </div>
+
       </div>
-      
-       <h2>Available Books ({filteredBooks.length} items found)</h2>
-      
+
+      <h2>Available Books ({filteredBooks.length} items found)</h2>
+
       <div className="book-list">
         {filteredBooks.length > 0 ? (
           filteredBooks.map((book) => (
@@ -94,7 +116,7 @@ function MainPage() {
           <p>No books found matching your criteria.</p>
         )}
       </div>
-      
+
     </div>
   );
 }

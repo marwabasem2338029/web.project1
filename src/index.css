@@ -1,146 +1,93 @@
- 
-/*   التنسيق الأساسي body and background */
- 
+/* GLOBAL STYLES (Body, Main Container, Headings) */
+
 body {
     margin: 0;
-    font-family: 'Times New Roman', Times, serif;
-     background: linear-gradient(to bottom right, #f8f0e3, #f4e8d8); 
-    color: #333; 
+    font-family: "Times New Roman", Times, serif;
+     background: linear-gradient(to bottom right, #C3D69B, #F0FFF0);
+    color: #333;
     min-height: 100vh;
 }
 
-/* تنسيق منطقة المحتوى الرئيسية */
+/* Main Container   */
 .main-page {
     padding: 20px;
     max-width: 1200px;
-    margin: 20px auto; 
-     background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 25px auto;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* تنسيق العناوين */
+/* Headings */
 h2 {
-    color: #4a3e35; 
-    border-bottom: 2px solid #4a3e35;
-    padding-bottom: 5px;
-    margin-top: 30px;
+    color: #556B2F;
+    border-bottom: 2px solid #556B2F;
+    padding-bottom: 8px;
+    margin-top: 20px;
+    font-size: 28px;
 }
 
+/* HEADER STYLES */
 
-/*   تنسيق الـ Header   */
-.navbar {
-    display: flex;
-    align-items: center; 
-     justify-content: space-between; 
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 15px 20px;
-}
-
- 
-
- .nav-links {
-    list-style: none; 
-    display: flex; 
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li {
-    margin: 0 15px; 
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #fefcfc;
-    font-size: 16px;
-    transition: color 0.3s;
-}
-
- .nav-links a:hover {
-    color: #8B4513; 
-}
-
- .logout-btn {
-    padding: 8px 15px;
-    background-color: #8B4513; 
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.logout-btn:hover {
-    background-color: #69340f; 
-}
-  
-  
 .main-header {
     width: 100%;
-    background-color: #f8f8f8; 
-     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-     position: sticky;
+     background-color: #556B2F; 
+    position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
-/* header-top */
+/* Header Top Bar*/
 .header-top-bar {
-     background-image: url('/images/library_bg.jpg'); 
-    background-size: cover; 
-    background-position: center; 
-    background-color: #4a3e35; 
-    
+     background-color: #6B8E23; 
     padding: 10px 20px;
-    display: flex; 
+    display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-}
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
 }
 
 .logo-name h1 {
     color: white;
     margin: 0;
-    font-size: 24px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); 
+    font-size: 24px;  
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* تنسيق (Login/Register) */
+/* Login/Register Links  */
 .auth-links {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
+    display: flex; 
     gap: 15px;
 }
+
 .auth-links a {
-    color: white;
+    color: #C3D69B;
     text-decoration: none;
-    font-weight: normal;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); 
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
-/*  header-bottom */
+.auth-links a:hover {
+    color: white;
+}
+
+
+/* Header Bottom Bar */
 .header-bottom-bar {
-    background-color: #6d5b4e; 
-    padding: 10px 20px;
-    display: flex; 
+    background-color: #556B2F;
+    padding: 12px 20px;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* تنسيق الروابط الأساسية (Home, About) */
 .nav-links {
     list-style: none;
     padding: 0;
@@ -150,35 +97,35 @@ h2 {
 }
 
 .nav-links a {
-    color: white;
+    color: #C3D69B; 
     text-decoration: none;
     font-weight: bold;
-    padding: 5px 0;
+    padding-bottom: 3px;
     transition: border-bottom 0.3s;
 }
 
 .nav-links a:hover {
-    border-bottom: 3px solid #e0ac4c; 
+    border-bottom: 3px solid #C3D69B;
 }
 
-/* تنسيق search */
+/* Search Bar */
 .search-bar {
     display: flex;
     gap: 0;
     background-color: white;
-    border-radius: 4px;
+    border-radius: 5px;
     overflow: hidden;
 }
 
 .search-bar input[type="text"] {
     padding: 8px 15px;
     border: none;
-    width: 300px;
+    width: 250px;
 }
 
 .search-bar button {
-    background-color: #e0ac4c; 
-    color: white;
+    background-color: #C3D69B; 
+    color: #556B2F; 
     border: none;
     padding: 8px 15px;
     font-size: 16px;
@@ -187,52 +134,17 @@ h2 {
 }
 
 .search-bar button:hover {
-    background-color: #c98c36;
+    background-color: #a4b77f;
 }
 
+/*FILTER CONTROLS */
 
-
-/*  تنسيق قائمة الكتب (Book List) */
-
-.book-list {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center;
-    gap: 15px; 
-    padding: 20px;
-}
-
-.book-card {
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin: 10px;
-    width: 200px; 
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: white; 
-}
-
-.book-card .book-cover {
-    width: 100%; 
-    max-width: 150px; 
-    height: 220px; 
-    object-fit: cover; 
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-}
-
-
- /*  تنسيق sort/filter */
- 
 .filter-controls {
     display: flex;
-    justify-content: flex-start;
-    gap: 30px;
-    padding: 10px 0;
-    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px 0;
+    margin-bottom: 20px;
     border-bottom: 1px solid #ddd;
 }
 
@@ -244,112 +156,111 @@ h2 {
 
 .control-group label {
     font-weight: bold;
-    color: #4a3e35; 
+    color: #556B2F;
 }
 
-.control-group select {
+.control-group select,
+.control-group input {
     padding: 8px 12px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    background-color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-
-/*  تنسيق   Login/Register   */
- 
-.auth-container {
-    max-width: 450px; 
-    margin: 80px auto; 
-    padding: 30px 40px;
-    background-color: white; 
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
-    text-align: center;
-}
-
-.btn-primary {
-    width: 100%;
-    padding: 12px;
-    background-color: #6d5b4e; 
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 15px;
-}
-
-.btn-primary:hover {
-    background-color: #4a3e35; 
-}
-
-/*تنسيق  شاشات ال login /register*/
-
- .auth-container {
-     width: 100%;
-    max-width: 400px;
-     margin: 50px auto;
-     background-color: #fff;
-     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-     border-radius: 10px;
-     padding: 30px;
-}
-
- .form-group {
-     margin-bottom: 20px;
-}
-
- .auth-container label {
-    display: block;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 5px;
     font-size: 15px;
-    color: #555;
-     margin-bottom: 8px;
-     font-weight: 600;
 }
 
- .auth-container input[type="text"],
-.auth-container input[type="password"],
-.auth-container input[type="email"] {
-     width: 100%;
-     padding: 10px 10px;
-     border: 1px solid #ddd;
-     border-radius: 6px;
-     font-size: 16px;
-     transition: border-color 0.3s ease;
-     box-sizing: border-box; 
+/*BOOK CARDS*/
+
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    padding-bottom: 40px;
 }
 
- .auth-container input:focus {
-     outline: none;
-     border-color: #007bff; 
-     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+.book-card {
+    width: 210px;
+    min-height: 350px; 
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    overflow: visible; 
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
- .auth-container button {
-     width: 100%;
-     padding: 12px;
-     background-color: #007bff; 
-     color: white;
-     border: none;
-     border-radius: 6px;
-     font-size: 18px;
-     font-weight: bold;
-     cursor: pointer;
-     transition: background-color 0.3s ease, transform 0.1s ease;
-     margin-top: 10px;
+.book-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
-
- .auth-container button:hover {
-     background-color: #0056b3;
+.book-card .book-cover {
+    width: 100%; 
+    max-width: 150px; 
+    height: 220px; 
+    object-fit: cover; 
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
 }
-
- .auth-container button:active {
-     transform: translateY(1px);
-}
- /*   NAVBAR STYLING */
- 
  
 
+/*LOGIN / REGISTER FORM & BUTTONS */
+
+.auth-container {
+    max-width: 420px;
+    margin: 80px auto;
+    padding: 35px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.auth-container input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.auth-container button {
+    padding: 12px;
+    background-color: #556B2F; 
+    color: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 6px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.auth-container button:hover {
+    background-color: #6B8E23;
+}
+
+/*RESPONSIVE STYLES*/
+
+@media (max-width: 768px) {
+    .main-header .header-top-bar,
+    .main-header .header-bottom-bar {
+        padding: 10px;
+    }
+
+    .book-card {
+        width: 45%;
+    }
+
+    .filter-controls {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .book-card {
+        width: 90%;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+}

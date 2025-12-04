@@ -7,7 +7,7 @@ function Header() {
       
        <div className="header-top-bar">
         <div className="logo-name">
-          <h1>My Library</h1>
+          <h1>bookHaven</h1>
         </div>
 
         <nav>
@@ -35,10 +35,7 @@ function Header() {
           </ul>
         </nav>
 
-        <div className="search-bar">
-          <input type="text" placeholder="Search books by title or author..." />
-          <button>🔍</button>
-        </div>
+        
       </div>
     </header>
   );

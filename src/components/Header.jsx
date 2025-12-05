@@ -11,6 +11,7 @@ function Header() {
         </div>
 
         <nav>
+          {/*Auth link: login & Register*/}
           <ul className="auth-links">
             <li>
               <Link to="/login">Login</Link>
@@ -21,7 +22,7 @@ function Header() {
           </ul>
         </nav>
       </div>
-
+      {/* Main Nav Links */}
        <div className="header-bottom-bar">
         <nav>
           <ul className="nav-links">

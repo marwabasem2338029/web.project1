@@ -1,14 +1,20 @@
+// src/pages/MainPage.jsx
+
 import React, { useState, useMemo } from 'react';
 import MOCK_BOOKS from '../data/MockProducts';
 
+//sort function:to apply sorting function outside main
 const sortBooks = (books, sortType) => {
   const sorted = [...books];
   
   if (sortType === 'year-asc') {
+    //Sorted By Year: Oldest to Newest
     sorted.sort((a, b) => a.year - b.year);
   } else if (sortType === 'year-desc') {
+    //Sorted By Year: Newest to Oldest
     sorted.sort((a, b) => b.year - a.year);
   } else if (sortType === 'title-asc') {
+    // Sorted By Litle: [A-Z]
     sorted.sort((a, b) => a.title.localeCompare(b.title));
   }
   
@@ -18,17 +24,17 @@ const sortBooks = (books, sortType) => {
 function MainPage() {
   const [selectedGenre, setSelectedGenre] = useState('all');
   const [sortType, setSortType] = useState('default');
-  const [searchTerm, setSearchTerm] = useState(''); // ⭐ NEW
-
+  const [searchTerm, setSearchTerm] = useState(''); 
+  //useMemo
   const filteredBooks = useMemo(() => {
     let currentBooks = MOCK_BOOKS;
 
-    // ⭐ Filter by genre
+    // Filter by genre
     if (selectedGenre !== 'all') {
       currentBooks = currentBooks.filter(book => book.genre === selectedGenre);
     }
 
-    // ⭐ Filter by SEARCH
+    // Filter by SEARCH
     if (searchTerm.trim() !== "") {
       currentBooks = currentBooks.filter(book =>
         book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -36,7 +42,7 @@ function MainPage() {
       );
     }
 
-    // ⭐ Apply sorting at the end
+    // Apply sorting to the filtered list
     return sortBooks(currentBooks, sortType);
 
   }, [selectedGenre, sortType, searchTerm]);
@@ -54,7 +60,7 @@ function MainPage() {
 
       <div className="filter-controls">
 
-        {/* ⭐ NEW SEARCH BAR */}
+        {/*SEARCH BAR */}
         <div className="control-group">
           <label htmlFor="search">Search:</label>
           <input
